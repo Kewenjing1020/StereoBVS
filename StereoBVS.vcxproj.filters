@@ -30,9 +30,6 @@
     <ClInclude Include="graphcut\inc\block.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="graphcut\inc\common.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="graphcut\inc\energy.h">
       <Filter>头文件</Filter>
     </ClInclude>

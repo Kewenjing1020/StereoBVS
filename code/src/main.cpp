@@ -13,16 +13,10 @@ void runWithDisp()
 	cout << "start---------" << endl << endl << endl;
 	const char *leftImgDir = "data\\left_image_folder\\";
 	const char *dispImgDir = "data\\disparity_image_folder\\";
-	const char *resultVideoName = "data\\result.avi";
 	const char *resultImgDir = "data\\result_image_folder\\";
 	int totalFrames = 40;
 	int strideOfImgIdx = 5;
-	Mat img = Mat::zeros(640, 480, CV_8UC3);
-	imwrite("img.png", img);
-
 	Size frameSize = imread("data\\left_image_folder\\0.png", 0).size();
-	VideoWriter resultVideo;
-	resultVideo.open(resultVideoName, CV_FOURCC('M', 'J', 'P', 'G'), 20.0, frameSize);
 	//loop for all frames
 	for (int startInd = 0; startInd < totalFrames; startInd += maxFrame)
 	{
@@ -225,7 +219,6 @@ void runWithDisp()
 			frames[i].copyTo(result(Range::all(), Range(0, frameSize.width)));
 			seg_mask_c3.copyTo(result(Range::all(), Range(frameSize.width, 2 * frameSize.width)));
 			seg_rgb.copyTo(result(Range::all(), Range(2 * frameSize.width, 3 * frameSize.width)));
-			resultVideo << result;
 			char s1[100], s2[100];
 			int ii = (i + startInd);
 				char s3[100];
@@ -238,7 +231,6 @@ void runWithDisp()
 			waitKey(1);
 		}
 	}	
-	resultVideo.release();
 	cout << "-----------------------end!-----------------" << endl;
 }
 

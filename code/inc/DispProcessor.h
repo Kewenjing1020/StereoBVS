@@ -437,6 +437,4 @@ void calcRect(Mat &img, Mat &contour, Rect &rect)
 	line(contour_, Point(x0, y1), Point(x1, y1), Scalar(255, 0, 0), 3);
 	line(contour_, Point(x1, y1), Point(x1, y0), Scalar(255, 0, 0), 3);
 	line(contour_, Point(x1, y0), Point(x0, y0), Scalar(255, 0, 0), 3);
-	imshow("contour", contour_);
-	imwrite("contour.png", contour_);
 }
